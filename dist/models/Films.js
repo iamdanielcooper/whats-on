@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Film {
     constructor(data) {
         this.title = data.title;
@@ -15,7 +16,12 @@ class Film {
             posterUrl: '',
             nowShowing: true,
         };
-        const newFilm = new Film(data);
-        // Add new film to database
+        return new Film(data);
+    }
+    static get all() {
+        const allFilms = [];
+        allFilms.push(this.create());
+        return allFilms;
     }
 }
+exports.default = Film;

@@ -6,7 +6,7 @@ interface filmData {
     nowShowing: boolean;
 }
 
-class Film {
+export default class Film {
     title: string;
     rating: string;
     runTime: string;
@@ -21,7 +21,7 @@ class Film {
         this.nowShowing = data.nowShowing;
     }
 
-    static create() {
+    static create(): Film {
         const data: filmData = {
             title: 'Tar',
             rating: '15',
@@ -29,8 +29,12 @@ class Film {
             posterUrl: '',
             nowShowing: true,
         };
-        const newFilm: Film = new Film(data);
+        return new Film(data);
+    }
 
-        // Add new film to database
+    static get all(): Film[] {
+        const allFilms: Film[] = [];
+        allFilms.push(this.create());
+        return allFilms;
     }
 }
