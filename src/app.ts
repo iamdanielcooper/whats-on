@@ -1,9 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { getAllFilms } from './controllers/filmsController';
-import { pool } from './db';
 
-const db = pool();
 const app = express();
 dotenv.config();
 

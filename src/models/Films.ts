@@ -1,3 +1,7 @@
+import { pool } from '../db';
+
+const db = pool();
+
 interface filmData {
     title: string;
     rating: string;
@@ -31,6 +35,8 @@ export default class Film {
         };
         return new Film(data);
     }
+
+    static addFilmToDatabase(): void {}
 
     static get all(): Film[] {
         const allFilms: Film[] = [];
